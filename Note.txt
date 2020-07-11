@@ -1,0 +1,12 @@
+React Hooks Project Tutorial - Game of Life
+https://www.youtube.com/watch?v=DvVt11mPuM0&t=2s
+https://github.com/benawad/react-conway-game-of-life
+
+https://github.com/Annie-Huang/react-conway-game-of-life
+
+https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+==============================================================
+
+C:\react>npx create-react-app react-conway-game-of-life --typescript
+C:\react\react-conway-game-of-life>npm install
+
