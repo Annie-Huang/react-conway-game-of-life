@@ -20,7 +20,25 @@ const App: React.FC = () => {
 
   // console.log(grid);
 
-
+  return (
+    <div style={{display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px`}}>
+      {
+        grid.map((row, i) =>
+          row.map((col, k) =>
+            <div
+              key={`${i}-${k}`}
+              style={{
+                width: 20,
+                height: 20,
+                backgroundColor: grid[i][k] ? 'pink' : undefined,
+                border: 'solid 1px black'
+              }}
+            />
+          )
+        )
+      }
+    </div>
+  );
 }
 
 export default App;
