@@ -100,7 +100,13 @@ const App: React.FC = () => {
 
   return (
     <>
-      <button onClick={() => setRunning(!running)}>
+      <button onClick={() => {
+        setRunning(!running);
+        if(!running) {
+          runningRef.current = true; // If we don't have this, there will be racing condition between setRunning is call and run Simulation is called?
+          runSimulation();
+        }
+      }}>
         {running? 'stop' : 'start'}
       </button>
       <br/><br/>
