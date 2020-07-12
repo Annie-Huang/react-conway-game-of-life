@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import './App.css';
 
 const numRows = 50;
 const numCols = 50;
