@@ -23,13 +23,20 @@ const operations = [
 
 const generateEmptyGrid = () => {
   const rows = [];
-
   // 0: dead. 1: life.
   for (let i = 0; i < numRows; i++) {
     // you can also do Array.from(Array(numCols), ()=>0) )
     rows.push(Array(numCols).fill(0));
   }
+  return rows;
+}
 
+const generateRandomGrid = () => {
+  const rows = [];
+  // 0: dead. 1: life.
+  for (let i = 0; i < numRows; i++) {
+    rows.push(Array.from(Array(numCols), () => Math.random() > 0.7 ? 1 : 0) );
+  }
   return rows;
 }
 
@@ -117,6 +124,11 @@ const App: React.FC = () => {
         {running? 'stop' : 'start'}
       </button>
       <button style={{width: 80, height: 30, fontSize: 20}}
+              onClick={() => setGrid(generateRandomGrid())}
+      >
+        random
+      </button>
+      <button style={{width: 80, height: 30, fontSize: 20}}
         onClick={() => setGrid(generateEmptyGrid())}
       >
         clear
@@ -137,7 +149,7 @@ const App: React.FC = () => {
                 style={{
                   width: 20,
                   height: 20,
-                  backgroundColor: grid[i][k] ? 'lightgreen' : undefined,
+                  backgroundColor: grid[i][k] ? 'green' : undefined,
                   border: 'solid 1px black'
                 }}
               />
