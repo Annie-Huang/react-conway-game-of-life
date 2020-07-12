@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useCallback, useRef, useState} from 'react';
 import produce from 'immer';
 
 const numRows = 50;
@@ -21,11 +21,20 @@ const App: React.FC = () => {
 
   const [running, setRunning] = useState(false);
 
+  // useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue).
+  // The returned object will persist for the full lifetime of the component.
+  const runningRef = useRef(running);
+  runningRef.current = running;
+
   // Pass an inline callback and an array of dependencies.
   // useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed.
   // useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).
   const runSimulation = useCallback(() => {
-    if(!running) {
+
+    // using running will not work because running variable will not change as runSimulation function is only created once
+    // If you want to use the current value of a variable inside a useCallback, you will have to use a useRef to point to the variable.
+    // if(!running) {
+    if(!runningRef.current) {
       return;
     }
 
