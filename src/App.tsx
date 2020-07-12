@@ -4,8 +4,8 @@ import './App.css';
 
 // const numRows = 50;
 // const numCols = 50;
-const numRows = 40;
-const numCols = 40;
+const numRows = 30;
+const numCols = 30;
 
 // https://en.wikipedia.org/wiki/Moore_neighborhood  It can has max 8 neighbors
 //  NW  N  NE
@@ -37,13 +37,26 @@ const updateGridValue = (grid: number[][]) => {
       // neighbors is the total values in the cell of its neighbors.
       let neighbors = 0;
 
+/*      // Option 1: If we won't want it to effect if it is out of boundary
       operations.forEach(([x, y]) => {
         const newI = i+x;
         const newK = k+y;
         if (newI >= 0 && newI < numRows && newK >=0 && newK < numCols) {  // Make sure it doesn't go out of boundary.
           neighbors += grid[newI][newK];
         }
-      })
+      })*/
+      // Option 2: A Cell who "comes to life" outside the board should wrap at the other side of the board.
+      // If you wanted to adapt it to a 'wrap-around' world where the edges consider the other side neighbours
+      const countNeighbors = (grid: any, x: number, y: number) => {
+        return operations.reduce((acc, [i, j]) => {
+          const row = (x + i + numRows) % numRows;
+          const col = (y + j + numCols) % numCols;
+          acc += grid[row][col];
+          return acc;
+        }, 0);
+      };
+      neighbors = countNeighbors(grid, i, k);
+
 
       // 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
       // 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
