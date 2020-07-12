@@ -19,19 +19,21 @@ const operations = [
   [-1, 0],  // W
 ]
 
+const generateEmptyGrid = () => {
+  const rows = [];
+
+  // 0: dead. 1: life.
+  for (let i = 0; i < numRows; i++) {
+    // you can also do Array.from(Array(numCols), ()=>0) )
+    rows.push(Array(numCols).fill(0));
+  }
+
+  return rows;
+}
+
 const App: React.FC = () => {
   // I didn't know we can set function inside useState like this...
-  const [grid, setGrid] = useState(() => {
-    const rows = [];
-
-    // 0: dead. 1: life.
-    for (let i = 0; i < numRows; i++) {
-      // you can also do Array.from(Array(numCols), ()=>0) )
-      rows.push(Array(numCols).fill(0));
-    }
-
-    return rows;
-  });
+  const [grid, setGrid] = useState(() => generateEmptyGrid());
   // console.log(grid);
 
   const [running, setRunning] = useState(false);
