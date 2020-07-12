@@ -100,6 +100,7 @@ const App: React.FC = () => {
   // console.log(grid);
 
   const [running, setRunning] = useState(false);
+  const [isWrappedAroundEdges, setIsWrappedAroundEdges] = useState(true);
 
   // useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue).
   // The returned object will persist for the full lifetime of the component.
@@ -143,6 +144,8 @@ const App: React.FC = () => {
       <br/><br/>
       <button style={{width: 200}} onClick={() => setGrid(updateGridValue(grid))}>next generation</button>
       <br/><br/>
+      Wrapped around edges? {isWrappedAroundEdges ? 'Yes' : 'No'} &nbsp;&nbsp;
+      <button onClick={() => setIsWrappedAroundEdges(!isWrappedAroundEdges)}>{isWrappedAroundEdges ? 'unwrap' : 'wrap'}</button>
       <div style={{display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px`}}>
         {
           grid.map((row, i) =>
