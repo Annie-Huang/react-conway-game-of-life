@@ -4,7 +4,7 @@ import produce from 'immer';
 const numRows = 50;
 const numCols = 50;
 
-// https://en.wikipedia.org/wiki/Moore_neighborhood
+// https://en.wikipedia.org/wiki/Moore_neighborhood  It can has max 8 neighbors
 //  NW  N  NE
 //  W   C   E
 //  SW  S   SE
@@ -59,6 +59,21 @@ const App: React.FC = () => {
 
         for(let i=0; i<numRows; i++) {
           for(let k=0; k<numCols; k++) {
+            // if a cell is not at the edge, it should by default have 8 neighbours https://en.wikipedia.org/wiki/Moore_neighborhood
+            // A cell can have 8 neighbors -> locate in the middle.
+            //                 5 neighbors -> locate on the edge
+            //                 3 neighbors -> locate in one of the four corners of the grid.
+            // For a neighbor, it has the value of 0: dead. 1: life.
+            // neighbors is the total values in the cell of its neighbors.
+            let neighbors = 0;
+
+            operations.forEach(([x, y]) => {
+              const newI = i+x;
+              const newK = k+y;
+              if (newI >= 0 && newI < numRows && newK >=0 && newK < numCols) {  // Make sure it doesn't go out of boundary.
+                neighbors += grid[newI][newK];
+              }
+            })
 
           }
         }
