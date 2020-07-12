@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import produce from 'immer';
 
 const numRows = 50;
@@ -20,6 +20,19 @@ const App: React.FC = () => {
   // console.log(grid);
 
   const [running, setRunning] = useState(false);
+
+  // Pass an inline callback and an array of dependencies.
+  // useCallback will return a memoized version of the callback that only changes if one of the dependencies has changed.
+  // useCallback(fn, deps) is equivalent to useMemo(() => fn, deps).
+  const runSimulation = useCallback(() => {
+    if(!running) {
+      return;
+    }
+
+    // simulate
+    setTimeout(runSimulation, 1000);
+
+  }, [])
 
   return (
     <>
