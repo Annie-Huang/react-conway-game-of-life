@@ -116,6 +116,11 @@ const App: React.FC = () => {
       >
         {running? 'stop' : 'start'}
       </button>
+      <button style={{width: 80, height: 30, fontSize: 20}}
+        onClick={() => setGrid(generateEmptyGrid())}
+      >
+        clear
+      </button>
       <br/><br/>
       <div style={{display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px`}}>
         {
