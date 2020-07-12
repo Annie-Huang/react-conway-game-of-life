@@ -38,6 +38,22 @@ const App: React.FC = () => {
       return;
     }
 
+    // Interesting, I didn't know setXXX function can pass in ()=>{} as well.
+    setGrid(grid => {
+      return produce(grid, gridCopy => {
+
+        for(let i=0; i<numRows; i++) {
+          for(let k=0; k<numCols; k++) {
+
+          }
+        }
+
+      });
+    });
+
+
+
+
     // simulate
     setTimeout(runSimulation, 1000);
 
