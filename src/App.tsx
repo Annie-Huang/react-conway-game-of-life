@@ -22,6 +22,7 @@ const operations = [
   [-1, 0],  // W
 ]
 
+// Or you can write it as Array<Array<number>>
 const updateGridValue = (grid: number[][]) => {
   // Spread doesn't work here. Clone multidimensional array
   let gridCopy = JSON.parse(JSON.stringify(grid));
@@ -105,7 +106,7 @@ const App: React.FC = () => {
     }
 
     // Interesting, I didn't know setXXX function can pass in ()=>{} as well.
-    setGrid(grid => updateGridValue(grid));
+    setGrid(grid => updateGridValue(grid)); // Have to be this format, setGrid(updateGridValue(grid)) does not work.
 
     // simulate
     // setTimeout(runSimulation, 1000);
@@ -125,7 +126,9 @@ const App: React.FC = () => {
         {running? 'stop' : 'start'}
       </button>
       <button onClick={() => setGrid(generateRandomGrid())}>random</button>
-      <button onClick={() => setGrid(generateEmptyGrid())}>clear</button>
+      <button onClick={() => setGrid(generateEmptyGrid())}>reset</button>
+      <br/><br/>
+      <button style={{width: 200}} onClick={() => setGrid(updateGridValue(grid))}>next generation</button>
       <br/><br/>
       <div style={{display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px`}}>
         {
