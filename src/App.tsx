@@ -94,7 +94,8 @@ const App: React.FC = () => {
 
 
     // simulate
-    setTimeout(runSimulation, 1000);
+    // setTimeout(runSimulation, 1000);
+    setTimeout(runSimulation, 100);
 
   }, [])
 
