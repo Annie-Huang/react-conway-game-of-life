@@ -4,6 +4,21 @@ import produce from 'immer';
 const numRows = 50;
 const numCols = 50;
 
+// https://en.wikipedia.org/wiki/Moore_neighborhood
+//  NW  N  NE
+//  W   C   E
+//  SW  S   SE
+const operations = [
+  [0, 1],   // N
+  [0, -1],  // S
+  [1, -1],  // SE
+  [-1, 1],  // NW
+  [1, 1],   // NE
+  [-1, -1], // SW
+  [1, 0],   // E
+  [-1, 0],  // W
+]
+
 const App: React.FC = () => {
   // I didn't know we can set function inside useState like this...
   const [grid, setGrid] = useState(() => {
