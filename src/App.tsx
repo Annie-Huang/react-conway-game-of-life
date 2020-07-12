@@ -1,8 +1,10 @@
 import React, {useCallback, useRef, useState} from 'react';
 import produce from 'immer';
 
-const numRows = 50;
-const numCols = 50;
+// const numRows = 50;
+// const numCols = 50;
+const numRows = 40;
+const numCols = 40;
 
 // https://en.wikipedia.org/wiki/Moore_neighborhood  It can has max 8 neighbors
 //  NW  N  NE
@@ -103,13 +105,15 @@ const App: React.FC = () => {
 
   return (
     <>
-      <button onClick={() => {
-        setRunning(!running);
-        if(!running) {
-          runningRef.current = true; // If we don't have this, there will be racing condition between setRunning is call and run Simulation is called?
-          runSimulation();
-        }
-      }}>
+      <button style={{width: 80, height: 30, fontSize: 20}}
+        onClick={() => {
+          setRunning(!running);
+          if(!running) {
+            runningRef.current = true; // If we don't have this, there will be racing condition between setRunning is call and run Simulation is called?
+            runSimulation();
+          }
+        }}
+      >
         {running? 'stop' : 'start'}
       </button>
       <br/><br/>
@@ -128,7 +132,7 @@ const App: React.FC = () => {
                 style={{
                   width: 20,
                   height: 20,
-                  backgroundColor: grid[i][k] ? 'pink' : undefined,
+                  backgroundColor: grid[i][k] ? 'lightgreen' : undefined,
                   border: 'solid 1px black'
                 }}
               />
