@@ -75,13 +75,22 @@ const App: React.FC = () => {
               }
             })
 
+            // 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
+            // 3. Any live cell with more than three live neighbours dies, as if by overpopulation.
+            // 2. Any live cell with two or three live neighbours lives on to the next generation.  <-- Don't need to do anything.
+            if (neighbors < 2 || neighbors > 3) {
+              gridCopy[i][k] = 0;
+
+            } else if(grid[i][k] === 0 && neighbors === 3) {
+              // 4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+              gridCopy[i][k] = 1;
+            }
+
           }
         }
 
       });
     });
-
-
 
 
     // simulate
