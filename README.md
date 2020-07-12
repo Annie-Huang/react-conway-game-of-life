@@ -1,44 +1,28 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to install and run
+- For installation, run `npm install`
+- To run the program, `npm run start`
 
-## Available Scripts
+## Program explain
 
-In the project directory, you can run:
+### Grid:
+- The program will generate a 30 by 30 grid table (if you want to change, please edit: const numRows = 30;
+const numCols = 30; in App.tsx)
+- Each cell in the grid is clickable.
+- Default background color is white, which represents the cell is dead.
+- When you click the cell,the background color is green, which represents the cell is alive.
+- Each click is toggle between live and dead of the cell.
 
-### `yarn start`
+### Buttons available:
+- Start button is to start the simulation after you set the cells (by clicking) into the initial state you want.
+- Stop button. Once you clicks start, button will change to "stop" so you can stop the simulation.
+- Random button. Randomly assign the cell to live or dead.
+- Reset button. Reset all cells to initial state (all dead)
+- Next generation button. Trigger the cells to go through one cycle only.
+- Decide whether you want keep the boundary or adapt it to a 'wrap-around' world where the edges consider the other side neighbours.
+You can click 'wrap' and 'unwrap' to toggle it. App.tsx, line
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Settings you can change:
+- Change the rows and columns of the table: App.tsx line 7-8.
+- Change the background color that represents the cell is alive: App.tsx line 170
+- Change the simulate circle timeframe. At the moment, it's set to every 100ms, it will update the cell. Appl.tsx line 133
