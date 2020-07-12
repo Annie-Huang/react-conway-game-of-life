@@ -1,5 +1,6 @@
 import React, {useCallback, useRef, useState} from 'react';
 import produce from 'immer';
+import './App.css';
 
 // const numRows = 50;
 // const numCols = 50;
@@ -112,27 +113,17 @@ const App: React.FC = () => {
 
   return (
     <>
-      <button style={{width: 80, height: 30, fontSize: 20}}
-        onClick={() => {
-          setRunning(!running);
-          if(!running) {
-            runningRef.current = true; // If we don't have this, there will be racing condition between setRunning is call and run Simulation is called?
-            runSimulation();
-          }
-        }}
-      >
+      <button onClick={() => {
+        setRunning(!running);
+        if(!running) {
+          runningRef.current = true; // If we don't have this, there will be racing condition between setRunning is call and run Simulation is called?
+          runSimulation();
+        }
+      }}>
         {running? 'stop' : 'start'}
       </button>
-      <button style={{width: 80, height: 30, fontSize: 20}}
-              onClick={() => setGrid(generateRandomGrid())}
-      >
-        random
-      </button>
-      <button style={{width: 80, height: 30, fontSize: 20}}
-        onClick={() => setGrid(generateEmptyGrid())}
-      >
-        clear
-      </button>
+      <button onClick={() => setGrid(generateRandomGrid())}>random</button>
+      <button onClick={() => setGrid(generateEmptyGrid())}>clear</button>
       <br/><br/>
       <div style={{display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px`}}>
         {
