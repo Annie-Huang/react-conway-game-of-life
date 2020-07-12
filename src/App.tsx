@@ -132,7 +132,22 @@ const App: React.FC = () => {
     // setTimeout(runSimulation, 1000);
     setTimeout(runSimulation, 100);
 
-  }, [])
+  }, []) // [] make sure it only run once.
+
+/*  // I don't really like this approach as I cannot stop it.
+  useInterval(() => {
+    if (!runningRef.current) {
+      return;
+    }
+    setGrid((grid) => updateGridValue(grid, isWrappedAroundEdges));
+  }, 100);*/
+
+/*  // Or you can pass on dependency arrays
+  // update function with running changes
+  useCallback(() => { ... }, [running])
+  // run simulation when button changes
+  useEffect(() => running && runSimulation(), [running])*/
+
 
   return (
     <>
