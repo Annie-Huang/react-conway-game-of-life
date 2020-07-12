@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import produce from 'immer';
 
 const numRows = 50;
 const numCols = 50;
@@ -16,28 +17,41 @@ const App: React.FC = () => {
 
     return rows;
   });
-
   // console.log(grid);
 
+  const [running, setRunning] = useState(false);
+
   return (
-    <div style={{display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px`}}>
-      {
-        grid.map((row, i) =>
-          row.map((col, k) =>
-            <div
-              key={`${i}-${k}`}
-              style={{
-                width: 20,
-                height: 20,
-                backgroundColor: grid[i][k] ? 'pink' : undefined,
-                border: 'solid 1px black'
-              }}
-            />
+    <>
+      <button onClick={() => setRunning(!running)}>
+        {running? 'stop' : 'start'}
+      </button>
+      <br/><br/>
+      <div style={{display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px`}}>
+        {
+          grid.map((row, i) =>
+            row.map((col, k) =>
+              <div
+                key={`${i}-${k}`}
+                onClick={() => {
+                  const newGrid = produce(grid, gridCopy => {
+                    gridCopy[i][k] = gridCopy[i][k] ? 0 : 1;
+                  })
+                  setGrid(newGrid);
+                }}
+                style={{
+                  width: 20,
+                  height: 20,
+                  backgroundColor: grid[i][k] ? 'pink' : undefined,
+                  border: 'solid 1px black'
+                }}
+              />
+            )
           )
-        )
-      }
-    </div>
-  );
+        }
+      </div>
+    </>
+  )
 }
 
 export default App;

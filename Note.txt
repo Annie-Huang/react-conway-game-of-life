@@ -5,6 +5,7 @@ https://github.com/benawad/react-conway-game-of-life
 https://github.com/Annie-Huang/react-conway-game-of-life
 
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+https://www.npmjs.com/package/immer
 ==============================================================
 
 C:\react>npx create-react-app react-conway-game-of-life --typescript
