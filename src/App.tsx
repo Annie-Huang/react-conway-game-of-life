@@ -4,8 +4,8 @@ import './App.css';
 
 // const numRows = 50;
 // const numCols = 50;
-const numRows = 30;
-const numCols = 30;
+export const numRows = 30;
+export const numCols = 30;
 
 // https://en.wikipedia.org/wiki/Moore_neighborhood  It can has max 8 neighbors
 //  NW  N  NE
@@ -81,7 +81,7 @@ const updateGridValue = (grid: number[][], isWrappedAroundEdges: boolean) => {
   return gridCopy;
 }
 
-const generateEmptyGrid = () => {
+export const generateEmptyGrid = () => {
   const rows = [];
   // 0: dead. 1: life.
   for (let i = 0; i < numRows; i++) {
@@ -91,7 +91,7 @@ const generateEmptyGrid = () => {
   return rows;
 }
 
-const generateRandomGrid = () => {
+export const generateRandomGrid = () => {
   const rows = [];
   // 0: dead. 1: life.
   for (let i = 0; i < numRows; i++) {

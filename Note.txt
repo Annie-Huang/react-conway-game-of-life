@@ -9,6 +9,7 @@ https://en.wikipedia.org/wiki/Moore_neighborhood
 https://www.npmjs.com/package/immer
 
 https://dev.to/muhajirdev/unit-testing-with-typescript-and-jest-2gln
+https://sergio.io/blog/reactjs-unit-test-and-code-coverage-with-jest
 ==============================================================
 
 C:\react>npx create-react-app react-conway-game-of-life --typescript
