@@ -4,8 +4,8 @@ import './App.css';
 
 // const numRows = 50;
 // const numCols = 50;
-export const numRows = 30;
-export const numCols = 30;
+export const numRows = 6;
+export const numCols = 6;
 
 // https://en.wikipedia.org/wiki/Moore_neighborhood  It can has max 8 neighbors
 //  NW  N  NE
@@ -23,7 +23,7 @@ const operations = [
 ]
 
 // Or you can write it as Array<Array<number>>
-const updateGridValue = (grid: number[][], isWrappedAroundEdges: boolean) => {
+export const updateGridValue = (grid: number[][], isWrappedAroundEdges: boolean): number[][] => {
   // Spread doesn't work here. Clone multidimensional array
   let gridCopy = JSON.parse(JSON.stringify(grid));
 
