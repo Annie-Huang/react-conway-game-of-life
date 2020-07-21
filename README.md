@@ -1,6 +1,10 @@
 ## How to install and run
 - For installation, run `npm install`
 - To run the program, `npm run start`
+- To run the test, `npm run test`
+- To run the test with coverage, `npm run coverage`
+Coverage report is in:
+<react-conway-game-of-life>\coverage\lcov-report\index.html
 
 ## Program explain
 

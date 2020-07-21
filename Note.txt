@@ -16,3 +16,9 @@ C:\react>npx create-react-app react-conway-game-of-life --typescript
 C:\react\react-conway-game-of-life>npm install
 
 C:\react\react-conway-game-of-life>npm install immer
+
+C:\react\react-conway-game-of-life>npm run test
+
+C:\react\react-conway-game-of-life>npm run coverage
+Coverage report is in:
+C:\react\react-conway-game-of-life\coverage\lcov-report\index.html
