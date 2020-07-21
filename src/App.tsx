@@ -81,7 +81,7 @@ export const updateGridValue = (grid: number[][], isWrappedAroundEdges: boolean)
   return gridCopy;
 }
 
-export const generateEmptyGrid = () => {
+export const generateEmptyGrid = (): number[][] => {
   const rows = [];
   // 0: dead. 1: life.
   for (let i = 0; i < numRows; i++) {
@@ -91,7 +91,7 @@ export const generateEmptyGrid = () => {
   return rows;
 }
 
-export const generateRandomGrid = () => {
+export const generateRandomGrid = (): number[][] => {
   const rows = [];
   // 0: dead. 1: life.
   for (let i = 0; i < numRows; i++) {
