@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App, { generateEmptyGrid, numRows, numCols, generateRandomGrid, updateGridValue } from './App';
+import App, { generateEmptyGrid, generateRandomGrid, updateGridValue } from './App';
 
 test('renders applications', () => {
   const { getByText } = render(<App />);
@@ -9,7 +9,9 @@ test('renders applications', () => {
 });
 
 test('generateEmptyGrid', () => {
-  const rows = generateEmptyGrid();
+  const numRows = 30;
+  const numCols = 30;
+  const rows = generateEmptyGrid(numRows, numCols);
   expect(rows.length).toBe(numRows);
   expect(rows[0].length).toBe(numCols);
   expect(rows[0].every(item => item === 0)).toBe(true);
@@ -17,7 +19,9 @@ test('generateEmptyGrid', () => {
 
 // This unit test should usually passed.
 test('generateRandomGrid', () => {
-  const rows = generateRandomGrid();
+  const numRows = 30;
+  const numCols = 30;
+  const rows = generateRandomGrid(numRows, numCols);
   expect(rows.length).toBe(numRows);
   expect(rows[0].length).toBe(numCols);
   // Cannot be every item in a row is equals to 0
@@ -46,7 +50,7 @@ test('generateRandomGrid', () => {
 *   0 0 0 0 0 0
 */
 test('updateGridValue', () => {
-  const grid = generateEmptyGrid();
+  const grid = generateEmptyGrid(6, 6);
   grid[1][2] = grid[1][3] = grid[1][4] = grid[2][1] = grid[2][2] = grid[2][3] = 1;
 
   let newGrid = updateGridValue(grid, false);

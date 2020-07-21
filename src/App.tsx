@@ -4,8 +4,8 @@ import './App.css';
 
 // const numRows = 50;
 // const numCols = 50;
-export const numRows = 6;
-export const numCols = 6;
+const numRows = 6;
+const numCols = 6;
 
 // https://en.wikipedia.org/wiki/Moore_neighborhood  It can has max 8 neighbors
 //  NW  N  NE
@@ -81,7 +81,7 @@ export const updateGridValue = (grid: number[][], isWrappedAroundEdges: boolean)
   return gridCopy;
 }
 
-export const generateEmptyGrid = (): number[][] => {
+export const generateEmptyGrid = (numRows: number, numCols: number): number[][] => {
   const rows = [];
   // 0: dead. 1: life.
   for (let i = 0; i < numRows; i++) {
@@ -91,7 +91,7 @@ export const generateEmptyGrid = (): number[][] => {
   return rows;
 }
 
-export const generateRandomGrid = (): number[][] => {
+export const generateRandomGrid = (numRows: number, numCols: number): number[][] => {
   const rows = [];
   // 0: dead. 1: life.
   for (let i = 0; i < numRows; i++) {
@@ -102,7 +102,7 @@ export const generateRandomGrid = (): number[][] => {
 
 const App: React.FC = () => {
   // I didn't know we can set function inside useState like this...
-  const [grid, setGrid] = useState(() => generateEmptyGrid());
+  const [grid, setGrid] = useState(() => generateEmptyGrid(numRows, numCols));
   // console.log(grid);
 
   const [running, setRunning] = useState(false);
@@ -160,8 +160,8 @@ const App: React.FC = () => {
       }}>
         {running? 'stop' : 'start'}
       </button>
-      <button onClick={() => setGrid(generateRandomGrid())}>random</button>
-      <button onClick={() => setGrid(generateEmptyGrid())}>reset</button>
+      <button onClick={() => setGrid(generateRandomGrid(numRows, numCols))}>random</button>
+      <button onClick={() => setGrid(generateEmptyGrid(numRows, numCols))}>reset</button>
       <br/><br/>
       <button style={{width: 200}} onClick={() => setGrid(updateGridValue(grid, isWrappedAroundEdges))}>next generation</button>
       <br/><br/>
