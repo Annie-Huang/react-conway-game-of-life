@@ -22,7 +22,8 @@
     "test": "react-scripts test",
     "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write  \"./src/*.{js,jsx,ts,tsx}\""
+    "prettier": "prettier --write  \"./src/*.{js,jsx,ts,tsx}\"",
+    "prettier:prehook": "pretty-quick --staged --pattern \"**/*.{ts,tsx,js,jsx,scss,css,html,json,md}\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,5 +44,10 @@
     "husky": "^3.1.0",
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:prehook"
+    }
   }
 }
