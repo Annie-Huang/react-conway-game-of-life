@@ -29,26 +29,26 @@ test('generateRandomGrid', () => {
 });
 
 /*
-*   Test this Toad (period 2) pattern in https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
-*
-*   This:
-*   0 0 0 0 0 0
-*   0 0 1 1 1 0
-*   0 1 1 1 0 0
-*   0 0 0 0 0 0
-*
-*   will becomes:
-*   0 0 0 1 0 0
-*   0 1 0 0 1 0
-*   0 1 0 0 1 0
-*   0 0 1 0 0 0
-*
-*   And then becomes the original again.:
-*   0 0 0 0 0 0
-*   0 0 1 1 1 0
-*   0 1 1 1 0 0
-*   0 0 0 0 0 0
-*/
+ *   Test this Toad (period 2) pattern in https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+ *
+ *   This:
+ *   0 0 0 0 0 0
+ *   0 0 1 1 1 0
+ *   0 1 1 1 0 0
+ *   0 0 0 0 0 0
+ *
+ *   will becomes:
+ *   0 0 0 1 0 0
+ *   0 1 0 0 1 0
+ *   0 1 0 0 1 0
+ *   0 0 1 0 0 0
+ *
+ *   And then becomes the original again.:
+ *   0 0 0 0 0 0
+ *   0 0 1 1 1 0
+ *   0 1 1 1 0 0
+ *   0 0 0 0 0 0
+ */
 test('updateGridValue', () => {
   const grid = generateEmptyGrid(6, 6);
   grid[1][2] = grid[1][3] = grid[1][4] = grid[2][1] = grid[2][2] = grid[2][3] = 1;
