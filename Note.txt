@@ -24,3 +24,4 @@ Coverage report is in:
 C:\react\react-conway-game-of-life\coverage\lcov-report\index.html
 
 C:\react\react-conway-game-of-life>npm i -D prettier
+C:\react\react-conway-game-of-life>npm i -D husky@3   << install the latest version in version 3
