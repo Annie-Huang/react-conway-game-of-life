@@ -22,3 +22,5 @@ C:\react\react-conway-game-of-life>npm run test
 C:\react\react-conway-game-of-life>npm run coverage
 Coverage report is in:
 C:\react\react-conway-game-of-life\coverage\lcov-report\index.html
+
+C:\react\react-conway-game-of-life>npm i -D prettier
