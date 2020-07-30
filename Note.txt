@@ -30,5 +30,7 @@ C:\react\react-conway-game-of-life>npm i -D prettier
 C:\react\react-conway-game-of-life>npm i -D husky@3   << install the latest version in version 3
 C:\react\react-conway-game-of-life>npm i -D pretty-quick
 
+C:\react\react-conway-game-of-life>npm install --save-dev @testing-library/react
+
 At the end, do:
 "pre-commit": "lint-staged && npm run test"
