@@ -30,7 +30,16 @@ C:\react\react-conway-game-of-life>npm i -D prettier
 C:\react\react-conway-game-of-life>npm i -D husky@3   << install the latest version in version 3
 C:\react\react-conway-game-of-life>npm i -D pretty-quick
 
-C:\react\react-conway-game-of-life>npm install --save-dev @testing-library/react
+C:\react\react-conway-game-of-life>npm install @testing-library/react@9
+
+Have to do the coverage exception in package.json.
+According to: https://stackoverflow.com/questions/43044696/test-a-create-react-app-index-js-file
+Create-react-app currently only supports these four keys in the Jest configuration (source):
+- collectCoverageFrom
+- coverageReporters
+- coverageThreshold
+- snapshotSerializers
+So we cannot set it in jest.config.json file.
 
 At the end, do:
 "pre-commit": "lint-staged && npm run test"
