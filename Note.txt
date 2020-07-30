@@ -10,6 +10,9 @@ https://www.npmjs.com/package/immer
 
 https://dev.to/muhajirdev/unit-testing-with-typescript-and-jest-2gln
 https://sergio.io/blog/reactjs-unit-test-and-code-coverage-with-jest
+
+https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
+https://medium.com/@feralamillo/create-react-app-typescript-eslint-and-prettier-699277b0b913
 ==============================================================
 
 C:\react>npx create-react-app react-conway-game-of-life --typescript

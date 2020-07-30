@@ -49,7 +49,7 @@ test('generateRandomGrid', () => {
  *   0 1 1 1 0 0
  *   0 0 0 0 0 0
  */
-test('updateGridValue', () => {
+test('updateGridValue - no on edge', () => {
   const grid = generateEmptyGrid(6, 6);
   grid[1][2] = grid[1][3] = grid[1][4] = grid[2][1] = grid[2][2] = grid[2][3] = 1;
 
@@ -68,4 +68,105 @@ test('updateGridValue', () => {
   expect(newGrid[2][1]).toBe(1);
   expect(newGrid[2][2]).toBe(1);
   expect(newGrid[2][3]).toBe(1);
+});
+
+/*
+ *   Test this Toad (period 2) pattern in https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+ *
+ *   This:
+ *   0 0 0 0 0 0
+ *   1 1 1 0 0 0
+ *   1 1 0 0 0 1
+ *   0 0 0 0 0 0
+ *
+ *   will becomes:
+ *   0 1 0 0 0 0
+ *   0 0 1 0 0 1
+ *   0 0 1 0 0 1
+ *   1 0 0 0 0 0
+ *
+ *   And then becomes the original again.:
+ *   0 0 0 0 0 0
+ *   1 1 1 0 0 0
+ *   1 1 0 0 0 1
+ *   0 0 0 0 0 0
+ */
+test('updateGridValue - on edge - with wrapped', () => {
+  const grid = generateEmptyGrid(6, 6);
+  grid[1][0] = grid[1][1] = grid[1][2] = grid[2][0] = grid[2][1] = grid[2][5] = 1;
+
+  let newGrid = updateGridValue(grid, true);
+  expect(newGrid[0][1]).toBe(1);
+  expect(newGrid[1][2]).toBe(1);
+  expect(newGrid[1][5]).toBe(1);
+  expect(newGrid[2][2]).toBe(1);
+  expect(newGrid[2][5]).toBe(1);
+  expect(newGrid[3][0]).toBe(1);
+
+  newGrid = updateGridValue(newGrid, true);
+  expect(newGrid[1][0]).toBe(1);
+  expect(newGrid[1][1]).toBe(1);
+  expect(newGrid[1][2]).toBe(1);
+  expect(newGrid[2][0]).toBe(1);
+  expect(newGrid[2][1]).toBe(1);
+  expect(newGrid[2][5]).toBe(1);
+});
+
+/*
+ *   Test this Toad (period 2) pattern in https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
+ *
+ *   This:
+ *   0 0 0 0 0 0
+ *   1 1 1 0 0 0
+ *   1 1 0 0 0 1
+ *   0 0 0 0 0 0
+ *
+ *   will becomes:
+ *   0 1 0 0 0 0
+ *   1 0 1 0 0 0
+ *   1 0 1 0 0 0
+ *   0 0 0 0 0 0
+ *
+ *   then will becomes:
+ *   0 1 0 0 0 0
+ *   1 0 1 0 0 0
+ *   0 0 0 0 0 0
+ *   0 0 0 0 0 0
+ *
+ *   then will becomes:
+ *   0 1 0 0 0 0
+ *   0 1 0 0 0 0
+ *   0 0 0 0 0 0
+ *   0 0 0 0 0 0
+ *
+ *   then will becomes:
+ *   0 0 0 0 0 0
+ *   0 0 0 0 0 0
+ *   0 0 0 0 0 0
+ *   0 0 0 0 0 0
+ */
+test('updateGridValue - on edge - no wrapped', () => {
+  const grid = generateEmptyGrid(6, 6);
+  grid[1][0] = grid[1][1] = grid[1][2] = grid[2][0] = grid[2][1] = grid[2][5] = 1;
+
+  let newGrid = updateGridValue(grid, false);
+  expect(newGrid[0][1]).toBe(1);
+  expect(newGrid[1][0]).toBe(1);
+  expect(newGrid[1][2]).toBe(1);
+  expect(newGrid[2][0]).toBe(1);
+  expect(newGrid[2][2]).toBe(1);
+
+  newGrid = updateGridValue(newGrid, false);
+  expect(newGrid[0][1]).toBe(1);
+  expect(newGrid[1][0]).toBe(1);
+  expect(newGrid[1][2]).toBe(1);
+
+  newGrid = updateGridValue(newGrid, false);
+  expect(newGrid[0][1]).toBe(1);
+  expect(newGrid[1][1]).toBe(1);
+
+  newGrid = updateGridValue(newGrid, false);
+  for (var i = 0; i < 6; i++) {
+    expect(newGrid[i].every(item => item === 0)).toBe(true);
+  }
 });
