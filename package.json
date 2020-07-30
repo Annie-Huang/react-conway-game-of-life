@@ -45,6 +45,13 @@
     "prettier": "^2.0.5",
     "pretty-quick": "^2.0.1"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/react-app-env.d.ts",
+      "!src/index.tsx"
+    ]
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run prettier:prehook"
