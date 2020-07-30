@@ -7,3 +7,8 @@ test('renders applications', () => {
   const linkElement = getByText(/Wrapped around edges?/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+it('should match snapshot', async () => {
+  const { asFragment } = render(<App />);
+  expect(asFragment()).toMatchSnapshot();
+});

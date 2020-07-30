@@ -5,8 +5,8 @@ import { updateGridValue, generateEmptyGrid, generateRandomGrid } from './gridUt
 
 // const numRows = 50;
 // const numCols = 50;
-const numRows = 6;
-const numCols = 6;
+const numRows = 30;
+const numCols = 30;
 
 const App: React.FC = () => {
   // I didn't know we can set function inside useState like this...
