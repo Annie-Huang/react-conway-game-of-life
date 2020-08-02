@@ -41,5 +41,8 @@ Create-react-app currently only supports these four keys in the Jest configurati
 - snapshotSerializers
 So we cannot set it in jest.config.json file.
 
+
+C:\react\react-conway-game-of-life>npm i --save-dev enzyme enzyme-adapter-react-16
+
 At the end, do:
 "pre-commit": "lint-staged && npm run test"
