@@ -54,9 +54,6 @@ it('click the last button can choose unwrapped and wrap the edges', async () => 
 });
 
 it('click start and stop button', async () => {
-  // console.log('=================', wrapper.text());
-  // startrandomresetnext generationWrapped around edges? No   wrap
-
   const wrapper = mount(<App />);
   expect(wrapper.exists('button[children="start"]')).toBe(true);
 
@@ -67,4 +64,30 @@ it('click start and stop button', async () => {
   wrapper.find('button[children="stop"]').simulate('click');
   expect(wrapper.exists('button[children="stop"]')).toBe(false);
   expect(wrapper.exists('button[children="start"]')).toBe(true);
+});
+
+it('click reset button', async () => {
+  const wrapper = mount(<App />);
+  expect(wrapper.find('#grid div').get(0).props.style.backgroundColor).toBe(undefined);
+  wrapper.find('#grid div').at(0).simulate('click');
+  expect(wrapper.find('#grid div').get(0).props.style.backgroundColor).toBe('green');
+  wrapper.find('button[children="reset"]').simulate('click');
+  expect(wrapper.find('#grid div').get(0).props.style.backgroundColor).toBe(undefined);
+});
+
+it('click random button', async () => {
+  const wrapper = mount(<App />);
+  let foundGreenCell = false;
+
+  wrapper.find('button[children="random"]').simulate('click');
+
+  for (let i = 0; i < 900; i++) {
+    if (wrapper.find('#grid div').get(i).props.style.backgroundColor === 'green') {
+      foundGreenCell = true;
+      break;
+    }
+  }
+
+  // expect to find at least one cell has turn green color;
+  expect(foundGreenCell).toBe(true);
 });
