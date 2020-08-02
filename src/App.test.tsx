@@ -37,3 +37,18 @@ it('click a cell will toggle it between undefined and green for background color
   wrapper.find('#grid div').at(0).simulate('click');
   expect(wrapper.find('#grid div').get(0).props.style.backgroundColor).toBe(undefined);
 });
+
+it('click the last button can choose unwrapped and wrap the edges', async () => {
+  // console.log('=================', wrapper.text());
+  // startrandomresetnext generationWrapped around edges? No   wrap
+
+  const wrapper = mount(<App />);
+  expect(wrapper.text()).toContain('Wrapped around edges? Yes');
+  wrapper.find('button[children="unwrap"]').simulate('click');
+  expect(wrapper.text()).toContain('Wrapped around edges? No');
+  expect(wrapper.exists('button[children="wrap"]')).toBe(true);
+
+  wrapper.find('button[children="wrap"]').simulate('click');
+  expect(wrapper.text()).toContain('Wrapped around edges? Yes');
+  expect(wrapper.exists('button[children="unwrap"]')).toBe(true);
+});
