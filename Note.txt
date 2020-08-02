@@ -52,3 +52,16 @@ C:\react\react-conway-game-of-life>npm i --save-dev enzyme enzyme-adapter-react-
 
 At the end, do:
 "pre-commit": "lint-staged && npm run test"
+
+
+TODO List:
+=================
+- Lint
+
+Done:
+============
+- Code
+- Unit test
+- Coverage Test (Enzyme)
+- Prettier
+- README.md
