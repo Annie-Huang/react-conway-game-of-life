@@ -164,7 +164,7 @@ test('updateGridValue - on edge - no wrapped', () => {
   expect(newGrid[1][1]).toBe(1);
 
   newGrid = updateGridValue(newGrid, numRows, numCols, false);
-  for (var i = 0; i < numRows; i++) {
+  for (let i = 0; i < numRows; i++) {
     expect(newGrid[i].every(item => item === 0)).toBe(true);
   }
 });

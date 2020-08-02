@@ -21,7 +21,7 @@ export const updateGridValue = (
   isWrappedAroundEdges: boolean
 ): number[][] => {
   // Spread doesn't work here. Clone multidimensional array
-  let gridCopy = JSON.parse(JSON.stringify(grid));
+  const gridCopy = JSON.parse(JSON.stringify(grid));
 
   for (let i = 0; i < numRows; i++) {
     for (let k = 0; k < numCols; k++) {

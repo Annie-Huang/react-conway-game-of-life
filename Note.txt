@@ -11,8 +11,10 @@ https://www.npmjs.com/package/immer
 https://dev.to/muhajirdev/unit-testing-with-typescript-and-jest-2gln
 https://sergio.io/blog/reactjs-unit-test-and-code-coverage-with-jest
 
-https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
+https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project       << Use this as base to setup lint.
 https://medium.com/@feralamillo/create-react-app-typescript-eslint-and-prettier-699277b0b913
+
+
 
 https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/find.html
 https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/key.html
@@ -49,6 +51,10 @@ So we cannot set it in jest.config.json file.
 
 
 C:\react\react-conway-game-of-life>npm i --save-dev enzyme enzyme-adapter-react-16
+
+C:\react\react-conway-game-of-life>npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
+C:\react\react-conway-game-of-life>npm install eslint-plugin-react --save-dev
+C:\react\react-conway-game-of-life>npm install eslint-config-prettier eslint-plugin-prettier --save-dev
 
 At the end, do:
 "pre-commit": "lint-staged && npm run test"
