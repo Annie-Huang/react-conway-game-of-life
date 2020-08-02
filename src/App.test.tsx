@@ -52,3 +52,19 @@ it('click the last button can choose unwrapped and wrap the edges', async () => 
   expect(wrapper.text()).toContain('Wrapped around edges? Yes');
   expect(wrapper.exists('button[children="unwrap"]')).toBe(true);
 });
+
+it('click start and stop button', async () => {
+  // console.log('=================', wrapper.text());
+  // startrandomresetnext generationWrapped around edges? No   wrap
+
+  const wrapper = mount(<App />);
+  expect(wrapper.exists('button[children="start"]')).toBe(true);
+
+  wrapper.find('button[children="start"]').simulate('click');
+  expect(wrapper.exists('button[children="start"]')).toBe(false);
+  expect(wrapper.exists('button[children="stop"]')).toBe(true);
+
+  wrapper.find('button[children="stop"]').simulate('click');
+  expect(wrapper.exists('button[children="stop"]')).toBe(false);
+  expect(wrapper.exists('button[children="start"]')).toBe(true);
+});
