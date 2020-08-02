@@ -62,7 +62,7 @@ At the end, do:
 
 TODO List:
 =================
-- Lint
+
 
 Done:
 ============
@@ -71,3 +71,4 @@ Done:
 - Coverage Test (Enzyme, 100%)
 - Prettier
 - README.md
+- Lint
