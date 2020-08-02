@@ -13,6 +13,12 @@ https://sergio.io/blog/reactjs-unit-test-and-code-coverage-with-jest
 
 https://www.robertcooper.me/using-eslint-and-prettier-in-a-typescript-project
 https://medium.com/@feralamillo/create-react-app-typescript-eslint-and-prettier-699277b0b913
+
+https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/find.html
+https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/key.html
+https://enzymejs.github.io/enzyme/docs/api/ReactWrapper/simulate.html
+https://enzymejs.github.io/enzyme/docs/api/selector.html    << explain why it cannot use key
+
 ==============================================================
 
 C:\react>npx create-react-app react-conway-game-of-life --typescript

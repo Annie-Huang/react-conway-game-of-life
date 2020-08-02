@@ -83,7 +83,7 @@ const App: React.FC = () => {
       <button onClick={() => setIsWrappedAroundEdges(!isWrappedAroundEdges)}>
         {isWrappedAroundEdges ? 'unwrap' : 'wrap'}
       </button>
-      <div style={{ display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px` }}>
+      <div id="grid" style={{ display: 'grid', gridTemplateColumns: `repeat(${numCols}, 20px` }} data-testid="grid">
         {grid.map((row, i) =>
           row.map((col, k) => (
             <div

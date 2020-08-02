@@ -25,6 +25,8 @@ exports[`should match snapshot 1`] = `
     unwrap
   </button>
   <div
+    data-testid="grid"
+    id="grid"
     style="display: grid; grid-template-columns: repeat(30, 20px;"
   >
     <div
