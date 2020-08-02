@@ -91,3 +91,37 @@ it('click random button', async () => {
   // expect to find at least one cell has turn green color;
   expect(foundGreenCell).toBe(true);
 });
+
+/*
+ *   Test this structure:
+ *   0 0 0 0 0 0
+ *   0 0 1 1 1 0
+ *   0 1 1 1 0 0
+ *   0 0 0 0 0 0
+ *
+ *   will becomes:
+ *   0 0 0 1 0 0
+ *   0 1 0 0 1 0
+ *   0 1 0 0 1 0
+ *   0 0 1 0 0 0
+ */
+it('click next generation button', async () => {
+  const wrapper = mount(<App />);
+
+  wrapper.find('#grid div').at(32).simulate('click');
+  wrapper.find('#grid div').at(33).simulate('click');
+  wrapper.find('#grid div').at(34).simulate('click');
+
+  wrapper.find('#grid div').at(61).simulate('click');
+  wrapper.find('#grid div').at(62).simulate('click');
+  wrapper.find('#grid div').at(63).simulate('click');
+
+  wrapper.find('button[children="next generation"]').simulate('click');
+
+  wrapper.find('#grid div').at(3).simulate('click');
+  wrapper.find('#grid div').at(31).simulate('click');
+  wrapper.find('#grid div').at(34).simulate('click');
+  wrapper.find('#grid div').at(61).simulate('click');
+  wrapper.find('#grid div').at(64).simulate('click');
+  wrapper.find('#grid div').at(92).simulate('click');
+});

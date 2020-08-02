@@ -62,6 +62,6 @@ Done:
 ============
 - Code
 - Unit test
-- Coverage Test (Enzyme)
+- Coverage Test (Enzyme, 100%)
 - Prettier
 - README.md
